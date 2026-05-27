@@ -1,0 +1,50 @@
+artifact_path: "file:c:/Users/USUARIO/Documents/KONRAD LORENZ/MAESTR\xCDA/MLOPS/FORECAST/notebooks/mlruns/485470096332940302/models/m-a40cdb2325b44124b8b71a7e68443f8e/artifacts"
+flavors:
+  lightgbm:
+    code: null
+    data: model.pkl
+    lgb_version: 4.6.0
+    model_class: lightgbm.sklearn.LGBMRegressor
+    serialization_format: cloudpickle
+    skops_trusted_types: null
+  python_function:
+    data: model.pkl
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.13.13
+is_signature_from_type_hint: false
+mlflow_version: 3.12.0
+model_id: m-a40cdb2325b44124b8b71a7e68443f8e
+model_size_bytes: 1837572
+model_uuid: m-a40cdb2325b44124b8b71a7e68443f8e
+prompts: null
+run_id: f5ae49c6c2684255b8db918579a57cd0
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "lag_1w", "required": true}, {"type": "double",
+    "name": "lag_2w", "required": true}, {"type": "double", "name": "lag_3w", "required":
+    true}, {"type": "double", "name": "lag_4w", "required": true}, {"type": "double",
+    "name": "rolling_mean_2w", "required": true}, {"type": "double", "name": "rolling_mean_4w",
+    "required": true}, {"type": "double", "name": "rolling_std_2w", "required": true},
+    {"type": "double", "name": "rolling_std_4w", "required": true}, {"type": "double",
+    "name": "cv", "required": true}, {"type": "double", "name": "delta_lag1_lag2",
+    "required": true}, {"type": "double", "name": "ratio_tienda_vs_media", "required":
+    true}, {"type": "long", "name": "semana_num", "required": true}, {"type": "double",
+    "name": "proporcion_finde", "required": true}, {"type": "long", "name": "costo_unitario",
+    "required": true}, {"type": "long", "name": "precio_venta", "required": true},
+    {"type": "long", "name": "costo_almacenamiento_semanal", "required": true}, {"type":
+    "long", "name": "margen_unitario", "required": true}, {"type": "double", "name":
+    "margen_pct", "required": true}, {"type": "long", "name": "tama\u00f1o_m2", "required":
+    true}, {"type": "integer", "name": "trend_enc", "required": true}, {"type": "integer",
+    "name": "cat_enc", "required": true}, {"type": "integer", "name": "tienda_enc",
+    "required": true}, {"type": "integer", "name": "producto_enc", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-05-27 04:49:37.097446'
