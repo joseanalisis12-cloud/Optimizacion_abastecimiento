@@ -1,0 +1,40 @@
+﻿services:
+
+  mlflow:
+    image: python:3.11-slim
+    container_name: mlflow_server
+    working_dir: /mlflow
+    volumes:
+      - ./notebooks/mlruns:/mlflow/mlruns
+    ports:
+      - "5000:5000"
+    command: >
+      bash -c "pip install mlflow==2.13.0 --quiet &&
+               mlflow server
+               --backend-store-uri file:///mlflow/mlruns
+               --default-artifact-root file:///mlflow/mlruns
+               --host 0.0.0.0
+               --port 5000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: forecast_api
+    volumes:
+      - ./notebooks/mlruns:/app/notebooks/mlruns
+      - ./notebooks/mlflow_run_ids.json:/app/notebooks/mlflow_run_ids.json
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    restart: on-failure

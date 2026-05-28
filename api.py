@@ -43,24 +43,41 @@ FEATURES = [
 ]
 
 # ── Carga de modelos al arrancar la API ────────────────────────────────────────
-print("Cargando modelos desde MLflow...")
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-RUN_IDS_PATH = os.path.join(BASE_DIR, "notebooks", "mlflow_run_ids.json")
+import time
 
-with open(RUN_IDS_PATH) as f:
-    run_ids = json.load(f)[0]   # {"P10": "...", "P50": "...", "P90": "..."}
-
+# ── Carga diferida de modelos ──────────────────────────────────────────────────
 modelos = {}
-for nombre_q, run_id in run_ids.items():
-    uri = f"runs:/{run_id}/model_{nombre_q}"
-    modelos[nombre_q] = mlflow.lightgbm.load_model(uri)
-    print(f"  ✓ {nombre_q} cargado desde run {run_id[:8]}...")
 
+def cargar_modelos(reintentos=10, espera=10):
+    with open(RUN_IDS_PATH) as f:
+        run_ids = json.load(f)[0]
+
+    for intento in range(reintentos):
+        try:
+            for nombre_q, run_id in run_ids.items():
+                uri = f"runs:/{run_id}/model_{nombre_q}"
+                modelos[nombre_q] = mlflow.lightgbm.load_model(uri)
+                print(f"  ✓ {nombre_q} cargado desde run {run_id[:8]}...")
+            print("  Todos los modelos cargados correctamente.")
+            return
+        except Exception as e:
+            print(f"  Intento {intento + 1}/{reintentos} fallido: {e}")
+            print(f"  Reintentando en {espera} segundos...")
+            time.sleep(espera)
+
+    print("  ⚠ No se pudieron cargar los modelos tras todos los intentos.")
+
+# ── App FastAPI ────────────────────────────────────────────────────────────────
 app = FastAPI(
     title       = "API de Forecast y Pedido Óptimo",
-    description = "LightGBM Quantile Regression + Newsvendor — Hospital / Retail",
+    description = "LightGBM Quantile Regression + Newsvendor",
     version     = "1.0.0",
 )
+
+@app.on_event("startup")
+async def startup_event():
+    print("Iniciando carga de modelos desde MLflow...")
+    cargar_modelos()
 
 # ── Schemas ────────────────────────────────────────────────────────────────────
 class FeaturesInput(BaseModel):

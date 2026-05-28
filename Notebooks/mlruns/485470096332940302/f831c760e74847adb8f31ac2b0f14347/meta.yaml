@@ -1,8 +1,9 @@
 artifact_uri: file:c:/Users/USUARIO/Documents/KONRAD LORENZ/MAESTRÍA/MLOPS/FORECAST/notebooks/mlruns/485470096332940302/f831c760e74847adb8f31ac2b0f14347/artifacts
+deleted_time: 1779945016413
 end_time: 1779857376554
 entry_point_name: ''
 experiment_id: '485470096332940302'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: f831c760e74847adb8f31ac2b0f14347
 run_name: lgbm_P10
 source_name: ''

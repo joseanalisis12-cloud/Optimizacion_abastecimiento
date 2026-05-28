@@ -1,0 +1,16 @@
+creation_timestamp: 1779932777249
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1779932777249
+model_id: m-0f2696d6b98643dda4ac5f3eb52382ad
+name: lgbm_quantile_p10
+run_id: 5fea1507a5274e92aee371ba8dcef6a1
+run_link: null
+source: models:/m-0f2696d6b98643dda4ac5f3eb52382ad
+status: READY
+status_message: null
+storage_location: file:c:/Users/USUARIO/Documents/KONRAD LORENZ/MAESTRÍA/MLOPS/FORECAST/notebooks/mlruns/485470096332940302/models/m-0f2696d6b98643dda4ac5f3eb52382ad/artifacts
+user_id: null
+version: 3
+workspace: default

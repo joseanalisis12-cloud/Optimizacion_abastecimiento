@@ -3,6 +3,6 @@ creation_timestamp: 1779857382126
 deployment_job_id: null
 deployment_job_state: null
 description: null
-last_updated_timestamp: 1779859489595
+last_updated_timestamp: 1779941435606
 name: lgbm_quantile_p50
 workspace: default
