@@ -1,0 +1,10 @@
+artifact_location: file:c:/Users/USUARIO/Documents/KONRAD LORENZ/MAESTRÍA/MLOPS/FORECAST/notebooks/mlruns/485470096332940302/models/m-2772035669cf445b98cdb0b6f11327bc/artifacts
+creation_timestamp: 1779951695496
+experiment_id: '485470096332940302'
+last_updated_timestamp: 1779951699900
+model_id: m-2772035669cf445b98cdb0b6f11327bc
+model_type: null
+name: model_P50
+source_run_id: d35a5488e58d4395bb9c934452a90f6a
+status: 2
+status_message: null
