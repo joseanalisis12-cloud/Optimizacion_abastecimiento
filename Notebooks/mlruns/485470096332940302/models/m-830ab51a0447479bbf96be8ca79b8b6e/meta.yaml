@@ -1,0 +1,10 @@
+artifact_location: file:c:/Users/USUARIO/Documents/KONRAD LORENZ/MAESTRÍA/MLOPS/FORECAST/notebooks/mlruns/485470096332940302/models/m-830ab51a0447479bbf96be8ca79b8b6e/artifacts
+creation_timestamp: 1780009126973
+experiment_id: '485470096332940302'
+last_updated_timestamp: 1780009131630
+model_id: m-830ab51a0447479bbf96be8ca79b8b6e
+model_type: null
+name: model_P90
+source_run_id: 9ab5a325d6ba4508925bdd564ea1fe4d
+status: 2
+status_message: null
