@@ -1,0 +1,14 @@
+artifact_uri: file:c:/Users/USUARIO/Documents/KONRAD LORENZ/MAESTRÍA/MLOPS/FORECAST/notebooks/mlruns/485470096332940302/e2115689afa1439ab6ee63e400dce131/artifacts
+end_time: 1780282779033
+entry_point_name: ''
+experiment_id: '485470096332940302'
+lifecycle_stage: active
+run_id: e2115689afa1439ab6ee63e400dce131
+run_name: lgbm_P50
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780282773655
+status: 3
+tags: []
+user_id: USUARIO
